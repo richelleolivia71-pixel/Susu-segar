@@ -1,249 +1,104 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fresh Milk Premium</title>
+<!-- DARK MODE BUTTON -->
+<button id="darkToggle" style="
+position:fixed;
+bottom:20px;
+right:20px;
+padding:10px 15px;
+border:none;
+background:#facc15;
+cursor:pointer;
+z-index:999;
+border-radius:8px;
+">🌙</button>
+
+<!-- BACK TO TOP -->
+<button id="topBtn" style="
+position:fixed;
+bottom:70px;
+right:20px;
+padding:10px 15px;
+border:none;
+background:#111827;
+color:white;
+cursor:pointer;
+display:none;
+border-radius:8px;
+z-index:999;
+">⬆</button>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+/* ANIMASI */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 }
 
-body {
-  background:images/Cow_female_black_white.jpg;
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: #111827;
+/* DARK MODE */
+.dark-mode {
+  background: #111827 !important;
   color: white;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
-nav h1 {
-  color: #facc15;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
+.dark-mode .card {
+  background: #1f2937;
   color: white;
-  text-decoration: none;
 }
 
-nav ul li a:hover {
-  color: #facc15;
+.dark-mode nav {
+  background: black;
 }
 
-/* HERO (AWALAN) */
-.hero {
-  height: 90vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('images/Cow_female_black_white.jpg') center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 20px;
-}
-
-.hero h2 {
-  font-size: 50px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-/* SECTION */
-section {
-  padding: 60px 30px;
-}
-
-/* ABOUT */
-.about {
-  text-align: center;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 15px;
-}
-
-.price {
-  color: green;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: #111827;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #facc15;
-  color: black;
-}
-
-/* CONTACT */
-.contact {
-  background: #111827;
-  color: white;
-  text-align: center;
-}
-
-.contact h2 {
-  color: #facc15;
-  margin-bottom: 10px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  nav {
-    flex-direction: column;
-  }
-
-  nav ul {
-    margin-top: 10px;
-  }
+html {
+  scroll-behavior: smooth;
 }
 </style>
-</head>
 
-<body>
+<script>
+// DARK MODE
+const toggle = document.getElementById("darkToggle");
+toggle.onclick = () => {
+  document.body.classList.toggle("dark-mode");
+};
 
-<!-- NAVBAR -->
-<nav>
-  <h1>Fresh Milk</h1>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">Manfaat</a></li>
-    <li><a href="#product">Produk</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+// ANIMASI SCROLL
+const elements = document.querySelectorAll(".card, .about, h2");
 
-<!-- HERO / HOME -->
-<div class="hero" id="home">
-  <div>
-    <h2>Fresh Milk Premium</h2>
-    <p>Susu segar langsung dari peternakan, sehat & bergizi 🥛</p>
-  </div>
-</div>
+window.addEventListener("scroll", () => {
+  elements.forEach(el => {
+    const pos = el.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 100) {
+      el.classList.add("show", "fade-in");
+    }
+  });
+});
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about">
-    <h2>About us</h2>
-    <p>
-      Susu cair segar berkualitas tinggi dengan perpaduan natural rasa coklat, strawberry, original, dan vanilla yang juga mengandung keseimbangan nutrisi baik dari protein, karbohidrat, vitamin, dan mineral seperti kalsium, magnesium, forsfor, selain juga rasanya. 
-      Sangat cocok diminum sehari-hari terutama oleh remaja.Produk kami memiliki citarasa terbaik diantara prosuk susu cair lainnya karena berasal dari kesegaran dan kemurnian bahan dasar susunya.Mulai harimu dengan energi murni. Nutrisi maksimal untuk tubuh yang lebih sehat.
-    </p>
-  </div>
-</section>
+// ALERT BUTTON
+document.querySelectorAll("button").forEach(btn => {
+  if (btn.innerText.includes("Keranjang")) {
+    btn.addEventListener("click", () => {
+      alert("Produk berhasil ditambahkan ke keranjang!");
+    });
+  }
+});
 
-<!-- PRODUCTS -->
-<section id="product">
-  <h2 style="text-align:center; margin-bottom:30px;">Produk Kami</h2>
+// BACK TO TOP
+const topBtn = document.getElementById("topBtn");
 
-  <div class="products">
+window.onscroll = () => {
+  if (document.documentElement.scrollTop > 200) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
 
-    <div class="card">
-      <img src="images/pngtree-original-glass-milk-cup-png-image_5766415.jpg">
-      <div class="card-body">
-        <h3>Susu Original</h3>
-        <p class="price">Rp10.000</p>
-        <button>Tambah ke Keranjang</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/004-soymilk.jpg">
-      <div class="card-body">
-        <h3>Susu Vanilla</h3>
-        <p class="price">Rp11.000</p>
-        <button>Tambah ke Keranjang</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/pngtree-a-clear-glass-filled-with-rich-chocolate-milk-creamy-and-smooth-picture-image_16212519.png">
-      <div class="card-body">
-        <h3>Susu Cokelat</h3>
-        <p class="price">Rp12.000</p>
-        <button>Tambah ke Keranjang</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/strawberry-milk-10.jpg">
-      <div class="card-body">
-        <h3>Susu Strawberry</h3>
-        <p class="price">Rp12.000</p>
-        <button>Tambah ke Keranjang</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <p>Alamat: Jl. Susu Sehat No. 10</p>
-  <p>Email: freshmilk@email.com</p>
-  <p>WhatsApp: 0812-3456-7890</p>
-</section>
-
-</body>
-</html>
+topBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+</script>
