@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fresh Milk Store</title>
+<title>Fresh Milk Elegant</title>
 
 <style>
 * {
@@ -14,7 +14,8 @@
 }
 
 body {
-  background: #f5f7f9;
+  background: #f9f9f9;
+  color: #333;
 }
 
 /* NAVBAR */
@@ -22,13 +23,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2ecc71;
-  padding: 15px 30px;
+  padding: 15px 40px;
+  background: #1f2937;
   color: white;
 }
 
 nav h1 {
-  font-size: 22px;
+  color: #facc15;
 }
 
 nav ul {
@@ -43,62 +44,44 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 nav ul li a:hover {
-  opacity: 0.8;
+  color: #facc15;
 }
 
-/* HERO SLIDER */
-.slider {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
+/* HOME / HERO */
+.home {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b') center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  animation: slideShow 12s infinite;
+.home h2 {
+  font-size: 40px;
 }
 
-.slide:nth-child(1) {
-  background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b');
-  animation-delay: 0s;
-}
-
-.slide:nth-child(2) {
-  background-image: url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
-  animation-delay: 4s;
-}
-
-.slide:nth-child(3) {
-  background-image: url('https://images.unsplash.com/photo-1627483298606-6bfcdfde9c2f');
-  animation-delay: 8s;
-}
-
-@keyframes slideShow {
-  0% {opacity: 0;}
-  10% {opacity: 1;}
-  30% {opacity: 1;}
-  40% {opacity: 0;}
-  100% {opacity: 0;}
+.home p {
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 /* SECTION */
 .container {
-  padding: 40px 20px;
+  padding: 60px 30px;
 }
 
 /* PRODUCT GRID */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 25px;
 }
 
 /* CARD */
@@ -106,17 +89,17 @@ nav ul li a:hover {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -125,11 +108,11 @@ nav ul li a:hover {
 }
 
 .card-body h3 {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .price {
-  color: #2ecc71;
+  color: #16a34a;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -138,33 +121,29 @@ button {
   width: 100%;
   padding: 10px;
   border: none;
-  background: #2ecc71;
+  background: #1f2937;
   color: white;
   border-radius: 8px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #27ae60;
+  background: #facc15;
+  color: black;
 }
 
 /* FOOTER */
 footer {
-  background: #333;
+  background: #1f2937;
   color: white;
   text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+  padding: 20px;
 }
 
-/* RESPONSIVE NAV */
-@media(max-width: 600px) {
-  nav {
-    flex-direction: column;
-  }
-
-  nav ul {
-    margin-top: 10px;
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .home h2 {
+    font-size: 28px;
   }
 }
 </style>
@@ -176,22 +155,23 @@ footer {
 <nav>
   <h1>Fresh Milk</h1>
   <ul>
-    <li><a href="#">Home</a></li>
+    <li><a href="#home">Home</a></li>
     <li><a href="#product">Produk</a></li>
     <li><a href="#contact">Kontak</a></li>
   </ul>
 </nav>
 
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slide"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
-</div>
+<!-- HOME -->
+<section class="home" id="home">
+  <div>
+    <h2>Susu Segar & Premium</h2>
+    <p>Nikmati berbagai varian fresh milk berkualitas tinggi setiap hari 🥛</p>
+  </div>
+</section>
 
 <!-- PRODUCT -->
-<div class="container" id="product">
-  <h2 style="text-align:center; margin-bottom:20px;">Produk Kami</h2>
+<section class="container" id="product">
+  <h2 style="text-align:center; margin-bottom:30px;">Produk Kami</h2>
 
   <div class="products">
 
@@ -207,7 +187,7 @@ footer {
     <div class="card">
       <img src="https://images.unsplash.com/photo-1604908554027-d1b8b0e5c5e3">
       <div class="card-body">
-        <h3>Susu Coklat</h3>
+        <h3>Susu Cokelat</h3>
         <p class="price">Rp12.000</p>
         <button onclick="alert('Ditambahkan ke keranjang')">Tambah ke Keranjang</button>
       </div>
@@ -216,7 +196,7 @@ footer {
     <div class="card">
       <img src="https://images.unsplash.com/photo-1625944525533-473f1c8c79dc">
       <div class="card-body">
-        <h3>Susu Stroberi</h3>
+        <h3>Susu Strawberry</h3>
         <p class="price">Rp12.000</p>
         <button onclick="alert('Ditambahkan ke keranjang')">Tambah ke Keranjang</button>
       </div>
@@ -232,11 +212,11 @@ footer {
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer id="contact">
-  <p>© 2026 Fresh Milk Store</p>
+  <p>© 2026 Fresh Milk Premium</p>
 </footer>
 
 </body>
