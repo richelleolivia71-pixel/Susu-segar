@@ -1,12 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Milk Premium</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #111827;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h1 {
+  color: #facc15;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #facc15;
+}
+
+/* HERO (AWALAN) */
+.hero {
+  height: 90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1526401485004-2fda9f1d4f0f') center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero h2 {
+  font-size: 50px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* SECTION */
+section {
+  padding: 60px 30px;
+}
+
+/* ABOUT */
+.about {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #facc15;
+  color: black;
+}
+
+/* CONTACT */
+.contact {
+  background: #111827;
+  color: white;
+  text-align: center;
+}
+
+.contact h2 {
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav ul {
+    margin-top: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>Fresh Milk</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Manfaat</a></li>
+    <li><a href="#product">Produk</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO / HOME -->
+<div class="hero" id="home">
+  <div>
+    <h2>Fresh Milk Premium</h2>
+    <p>Susu segar langsung dari peternakan, sehat & bergizi 🥛</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <h2>Manfaat Susu</h2>
+    <p>
+      Susu mengandung kalsium, protein, dan vitamin yang baik untuk tulang,
+      daya tahan tubuh, dan pertumbuhan. Cocok untuk semua usia setiap hari.
+    </p>
+  </div>
+</section>
+
 <!-- PRODUCTS -->
 <section id="product">
   <h2 style="text-align:center; margin-bottom:30px;">Produk Kami</h2>
 
   <div class="products">
 
-    <!-- ORIGINAL -->
     <div class="card">
-      <img src="images/susu-original.jpg" alt="Susu Original">
+      <img src="images/susu-original.jpg">
       <div class="card-body">
         <h3>Susu Original</h3>
         <p class="price">Rp10.000</p>
@@ -14,9 +207,8 @@
       </div>
     </div>
 
-    <!-- VANILLA -->
     <div class="card">
-      <img src="images/susu-vanilla.jpg" alt="Susu Vanilla">
+      <img src="images/susu-vanilla.jpg">
       <div class="card-body">
         <h3>Susu Vanilla</h3>
         <p class="price">Rp11.000</p>
@@ -24,9 +216,8 @@
       </div>
     </div>
 
-    <!-- COKELAT (TAMBAHAN) -->
     <div class="card">
-      <img src="images/susu-cokelat.jpg" alt="Susu Cokelat">
+      <img src="images/susu-cokelat.jpg">
       <div class="card-body">
         <h3>Susu Cokelat</h3>
         <p class="price">Rp12.000</p>
@@ -34,9 +225,8 @@
       </div>
     </div>
 
-    <!-- STRAWBERRY (TAMBAHAN) -->
     <div class="card">
-      <img src="images/susu-strawberry.jpg" alt="Susu Strawberry">
+      <img src="images/susu-strawberry.jpg">
       <div class="card-body">
         <h3>Susu Strawberry</h3>
         <p class="price">Rp12.000</p>
@@ -46,3 +236,14 @@
 
   </div>
 </section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Alamat: Jl. Susu Sehat No. 10</p>
+  <p>Email: freshmilk@email.com</p>
+  <p>WhatsApp: 0812-3456-7890</p>
+</section>
+
+</body>
+</html>
